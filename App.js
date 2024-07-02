@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 // form validation.
 import * as Yup from "yup";
@@ -12,6 +12,30 @@ const PasswordSchema = Yup.object().shape({
 });
 
 export default function App() {
+  const [password, setPassword] = useState("");
+  const [isPassGenerated, setisPassGenerated] = useState(false);
+  const [lowerCase, setLowerCase] = useState(true);
+  const [upperCase, setUpperCase] = useState(false);
+  const [numbers, useNumbers] = useState(false);
+  const [setsymbols, useSetsymbols] = useState(false);
+
+  const generatePasswordString = (PasswordLength) => {
+    //
+  };
+
+  const createPassword = (characters, PasswordLength) => {
+    let result = "";
+    for (let i = 0; i < PasswordLength; i++) {
+      const characterIndex = Math.round(Math.random() * characters.length);
+      result += characters.charAt(characterIndex);
+    }
+    return result;
+  };
+
+  const resetPassword = () => {
+    //
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
